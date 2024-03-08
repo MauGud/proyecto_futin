@@ -1,8 +1,8 @@
 @charset "UTF-8";
 body, html {
   font-family: Arial, sans-serif;
-  color: #000000;
-  background-color: #ffffff;
+  color: #000000; /* Verde mar, para el texto, relacionado con el campo */
+  background-color: #ffffff; /* Alice Blue, un azul muy claro, como el cielo */
   display: flex;
   flex-direction: column;
   margin: 0;
@@ -12,9 +12,9 @@ body, html {
 }
 
 .logo {
-  width: 150px;
+  width: 150px; /* Ajusta este valor según el tamaño de tu logo */
   display: block;
-  margin: 0 auto;
+  margin: 0 auto; /* Centra el logo */
 }
 
 header, footer {
@@ -23,120 +23,75 @@ header, footer {
   color: #ffffff;
   background-color: #04446E;
 }
-header a, footer a {
-  color: #3CB371;
-}
 
 nav {
   margin-bottom: 20px;
-  background-color: #04446E;
-}
-nav ul {
-  display: flex;
-  list-style: none;
-  padding: 0;
-  margin: 0;
-  justify-content: center;
-}
-nav ul li {
-  font-size: 1.5rem;
-  padding: 10px 20px;
-  align-items: center;
-}
-nav ul li a {
-  text-decoration: none;
-  color: #ffffff;
-  display: block;
-}
-nav ul li:not(:last-child) {
-  margin-right: 20px;
 }
 
+p, nav ul li {
+  font-size: 1.5rem;
+  align-items: center;
+}
+
+nav ul li a {
+  text-decoration: none;
+  color: #000000; /* Verde agua, para los enlaces, refrescante y atractivo */
+}
+
+.features-grid img {
+  height: 100px;
+  width: 100px;
+  padding: 0;
+}
+
+.navbar-nav {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  justify-content: space-around; /* Flexbox para distribuir los elementos del menú */
+}
+
+.nav-item a {
+  display: flex;
+  align-items: center;
+  color: #007bff; /* Color por defecto de los enlaces en Bootstrap */
+}
+
+@media (max-width: 768px) {
+  .navbar-nav {
+    flex-direction: row; /* Asegura que el menú se muestre horizontalmente en dispositivos móviles */
+  }
+}
 .features-grid {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   grid-gap: 20px;
   padding: 20px;
 }
-.features-grid .feature-item {
-  perspective: 1000px;
-}
-.features-grid .feature-item img {
-  height: 100px;
-  width: 100px;
-}
-.features-grid .feature-item .feature-item-inner {
-  width: 100%;
-  height: 320px;
-  position: relative;
-  transition: transform 1s;
-  transform-style: preserve-3d;
-}
-.features-grid .feature-item .feature-item-inner:hover {
-  transform: rotateY(180deg);
-}
-.features-grid .feature-item .feature-item-inner .feature-front, .features-grid .feature-item .feature-item-inner .feature-back {
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  backface-visibility: hidden;
+
+.feature-item {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   text-align: center;
+  background-color: #F5F5F5; /* Gris claro para el fondo de cada item */
   padding: 20px;
-  box-sizing: border-box;
-  border-radius: 10px;
+  border-radius: 10px; /* Bordes redondeados para suavizar el diseño */
 }
-.features-grid .feature-item .feature-item-inner .feature-front {
-  background-color: #F5F5F5;
-}
-.features-grid .feature-item .feature-item-inner .feature-back {
-  transform: rotateY(180deg);
-  background-color: #E5E5E5;
-}
-.features-grid .feature-item .feature-item-inner .feature-back p {
-  color: #000000;
-  font-size: 1rem;
+
+.feature-item p {
   margin-top: 10px;
+  color: #000000; /* Utilizando el verde mar de tu esquema de color */
+  font-size: 1rem; /* Tamaño de fuente ajustado para mantener el diseño minimalista */
 }
 
 footer {
   font-size: 20px;
 }
-footer a {
-  color: #3CB371;
-}
 
-form {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  gap: 10px;
-  padding: 20px;
-}
-form input[type=text],
-form input[type=email],
-form input[type=tel],
-form textarea {
-  width: 18cm;
-  height: auto;
-  padding: 10px;
-  margin: 10px 0;
-  border: 1px solid #ccc;
-  border-radius: 5px;
-}
-form input[type=submit] {
-  cursor: pointer;
-  background-color: #007bff;
-  color: white;
-  border: none;
-  padding: 10px 20px;
-}
-form input[type=submit]:hover {
-  background-color: #0056b3;
+footer a {
+  color: #3CB371; /* Para mantener la coherencia con el esquema de colores */
 }
 
 /* Aquí comienza segunda pag. */
@@ -214,19 +169,48 @@ form input[type=submit]:hover {
   background-color: #0056b3; /* Color de fondo al pasar el mouse */
 }
 
-@media (max-width: 768px) {
-  .navbar-nav {
-    flex-direction: column;
-  }
-  .navbar-nav li {
-    margin-bottom: 10px;
-  }
-  form {
-    flex-direction: column;
-  }
-  .carrusel-container .carrusel-item {
-    width: 100%;
-  }
+/* Aquí empieza la página de contacto */
+main {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  padding: 20px;
+  box-sizing: auto;
 }
 
-/*# sourceMappingURL=estilo.css.map */
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px; /* Espacio entre los elementos del formulario */
+}
+
+input[type=text],
+input[type=email],
+input[type=tel],
+textarea {
+  width: 15cm;
+  height: 1cm;
+}
+
+input[type=submit] {
+  width: 100%;
+  padding: 10px;
+  margin: 5px 0; /* Espacio arriba y abajo de cada elemento */
+  /*  box-sizing: border-box; - El padding y border no afectan el ancho final */
+  height: 1cm;
+  width: 15cm; /* Establece el ancho de los elementos del formulario */
+  cursor: pointer;
+}
+
+input[type=submit] {
+  background-color: #007bff; /* Color de fondo */
+  color: white; /* Color del texto */
+  border: none; /* Sin borde */
+  cursor: pointer; /* Cambia el cursor a una mano */
+}
+
+input[type=submit]:hover {
+  background-color: #0056b3; /* Color de fondo al pasar el mouse */
+}
+
+/*# sourceMappingURL=styles.css.map */
