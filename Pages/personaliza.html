@@ -23,7 +23,7 @@
               <li class="nav-item"> <a class="nav-link" href="../index.html"> Inicio </a>
                 </li>
 
-              <li class="nav-item"> <a class="nav-link" href="./personaliza.html"> Personaliza tu uniforme </a>
+              <li class="nav-item"> <a class="nav-link" href="./personaliza.html"> Personaliza tu Uniforme </a>
                 </li>
 
               <li class="nav-item"> <a class="nav-link" href="../Pages/jerseys.html"> Jerseys </a>
@@ -88,5 +88,11 @@
         <a href="https://wa.me/+525530587866">WhatsApp</a>
     </footer>
     
-</body>
-</html>
+    <script>
+      document.querySelector('.search-icon').addEventListener('click', function() {
+          var searchQuery = document.getElementById('search-box').value;
+          window.location.href = `https://fut-in.com/search?type=product&q=${encodeURIComponent(searchQuery)}`;
+      });
+      </script>
+  </body>
+  </html>
