@@ -1,8 +1,12 @@
 $color-primario: #0961f4; // Azul claro
-$color-secundario: #0857dc; // Azul oscuro
+$color-secundario: #04446E; // Azul oscuro
 $color-texto: #000000;
 $fondo-pagina: #ffffff;
 $fuente-primaria: 'Arial', sans-serif;
+
+$espaciado-base: 20px;
+$sombra: 0 2px 4px rgba($color-texto, 0.1);
+
 
 html, body {
     height: 100%;
@@ -36,11 +40,12 @@ body {
 
 // Sticky Footer
 footer {
+    
     margin-top: auto;
     background-color: $color-primario;
     color: $fondo-pagina;
     text-align: center;
-    padding: 20px 0;
+    padding: 20px;
 }
 
 // Estilos de botón mejorados
@@ -68,7 +73,7 @@ header, footer {
     text-align: center;
     padding: 20px;
     color: #ffffff;
-    background-color: #04446E;
+    background-color: $color-primario;
 
     a {
         color: #3CB371;
@@ -79,12 +84,14 @@ header, footer {
     }
 }
 
+
+
 nav {
     margin-bottom: 20px;
-    background-color: #04446E;
+    background-color: $color-secundario;
 
     .container-fluid {
-        padding: 0;
+        padding: 10px;    
     }
 
     ul {
@@ -96,7 +103,7 @@ nav {
 
         li {
             font-size: 1.5rem;
-            padding: 10px 00px;
+            padding: 10px 0px;
 
             a {
                 text-decoration: none;
@@ -110,6 +117,38 @@ nav {
         }
     }
 }
+
+// Sección Acerca de
+.acerca-de {
+    padding: $espaciado-base;
+    background-color: $fondo-pagina;
+    box-shadow: $sombra;
+    margin: $espaciado-base 0;
+  
+    h2 {
+      color: $color-primario;
+    }
+  }
+  
+  // Sección Testimonios
+  .testimonios {
+    padding: $espaciado-base;
+    background-color: $color-primario;
+    color: $fondo-pagina;
+  
+    blockquote {
+      quotes: "“" "”" "‘" "’";
+      before {
+        content: open-quote;
+      }
+      after {
+        content: close-quote;
+      }
+      font-style: italic;
+    }
+  }
+  
+
 
 /* Aquí comienza segunda pag. */
 
@@ -194,12 +233,25 @@ nav {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
     grid-gap: 20px;
-    width: 100%;
+    margin: 0 auto;
+    max-width: calc(100% - 40px);
     padding: 20px;
+    padding-bottom: 2cm;
+    align-items: center;
+    max-width: calc(100% - 40px);
+
+    @media (max-width: 768px) {
+    .features-grid {
+        grid-template-columns: 1fr;
+        padding-bottom: 50px; // Asegúrate de que también aquí se mantenga el espacio en el fondo
+    }
+}
 }
 
 .feature-item {
     perspective: 1000px;
+    margin: 0 10px;
+
 
     img {
         height: 100px;
@@ -248,6 +300,37 @@ nav {
     }
 }
 
+.form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 3px; // Espacio entre los elementos del formulario
+
+    input[type="text"],
+    input[type="email"],
+    input[type="tel"],
+    textarea {
+        width: 15cm; // Asegura que los campos de texto ocupen todo el ancho disponible
+        padding: 8px; // Espaciado interno para que sea más fácil de leer
+        margin-bottom: 10px; // Espacio entre los campos del formulario
+    }
+
+    input[type="submit"] {
+        align-self: center; // Centra el botón de envío en el formulario
+        padding: 10px 20px; // Aumenta el espaciado interno para un mejor clic
+        cursor: pointer; // Cambia el cursor a un puntero para indicar que es clickeable
+        background-color: $color-primario; // Usa la variable de color primario para el fondo
+        color: $fondo-pagina; // Color de texto
+        border: none;
+        border-radius: 5px; // Bordes redondeados para el botón
+        transition: background-color 0.3s ease; // Transición suave al cambiar el color de fondo
+
+        &:hover {
+            background-color: $color-secundario; // Cambia el color al pasar el mouse
+        }
+    }
+}
+
 footer {
     width: 100%;
     text-align: center;
@@ -265,48 +348,35 @@ footer {
 }
 
 @media (max-width: 768px) {
-    .navbar-nav {
+    .navbar-nav, .nav-item {
         flex-direction: column;
-
-        li {
-            margin-bottom: 10px;
+        align-items: center;
+        
+        .nav-link {
+            padding: 10px 0; // Aumenta el espaciado para facilitar la navegación táctil
         }
+    }
+
+    .logo {
+        height: 80px; // Reduce el tamaño del logo en dispositivos más pequeños
+    }
+
+    .features-grid, .carrusel-container, .atributos, .form {
+        padding: 10px; // Reduce el padding para adaptarse a pantallas más estrechas
     }
 
     .features-grid {
-        grid-template-columns: 1fr;
-    }
-}
- 
-    .form {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        gap: 3px; // Espacio entre los elementos del formulario
-    
-        input[type="text"],
-        input[type="email"],
-        input[type="tel"],
-        textarea {
-            width: 15cm; // Asegura que los campos de texto ocupen todo el ancho disponible
-            padding: 8px; // Espaciado interno para que sea más fácil de leer
-            margin-bottom: 10px; // Espacio entre los campos del formulario
-        }
-    
-        input[type="submit"] {
-            align-self: center; // Centra el botón de envío en el formulario
-            padding: 10px 20px; // Aumenta el espaciado interno para un mejor clic
-            cursor: pointer; // Cambia el cursor a un puntero para indicar que es clickeable
-            background-color: $color-primario; // Usa la variable de color primario para el fondo
-            color: $fondo-pagina; // Color de texto
-            border: none;
-            border-radius: 5px; // Bordes redondeados para el botón
-            transition: background-color 0.3s ease; // Transición suave al cambiar el color de fondo
-    
-            &:hover {
-                background-color: $color-secundario; // Cambia el color al pasar el mouse
-            }
-        }
+        grid-template-columns: 1fr; // Asegura que las características se apilen verticalmente
     }
 
+    .form input[type="text"], .form input[type="email"], .form input[type="tel"], .form textarea, .form input[type="submit"] {
+        width: auto; // Ajusta el ancho de los campos de formulario para adaptarse al contenedor
+        margin: 10px; // Aumenta el margen para mejorar la disposición
+        
+    }
+
+    .atributos p, .atributos li, .boton-externo {
+        font-size: 20px; // Reduce el tamaño de la fuente para una mejor legibilidad en pantallas pequeñas
+    }
+}
 /*# sourceMappingURL=styles.css.map */
